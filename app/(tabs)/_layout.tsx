@@ -20,13 +20,20 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: Colors[colorScheme ?? 'dark'].tint,
       }}>
+      <Tabs.Screen
+      name="admin"
+      options={{
+        title: 'Admin',
+        tabBarIcon: ({color}) => <TabBarIcon name="gear" color={color} />, 
+      }}
+      />
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Open orders',
+          tabBarIcon: ({ color }) => <TabBarIcon name="bell" color={color} />,
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
@@ -46,10 +53,18 @@ export default function TabLayout() {
       <Tabs.Screen
         name="two"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Last signals',
+          tabBarIcon: ({ color }) => <TabBarIcon name="history" color={color} />,
         }}
       />
+      <Tabs.Screen
+      name="settings"
+      options={{
+        title: 'Settings',
+        tabBarIcon: ({color}) => <TabBarIcon name="gear" color={color} />, 
+      }}
+      />
+      
     </Tabs>
   );
 }
